@@ -1,0 +1,73 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.name {
+  margin-top: 55px;
+  text-align: center;
+  color: #8ad9d1;
+}
+.adjust {
+  padding: 5px;
+  color: #758888ab;
+  background-color: #8ad9d169;
+  border: none;
+  border-radius: 10px;
+  position: absolute;
+  left: 305px;
+  top: 5px;
+}
+.buttons {
+  margin: 10px;
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 45px;
+}
+.converter,
+.calculator {
+  color: #758888;
+  padding: 10px;
+  background: #ffe1e6cc;
+  font-size: 19px;
+  border-radius: 10px;
+  border: none;
+}
+.number {
+  margin: 16px;
+  margin-left:55px;
+  padding: 10px;
+  width: 260px;
+  border: 2px #cde2dba6 solid;
+  background-color: #dbe4e24d;
+  border-radius: 10px;
+}
+
+input[type="button"] {
+  margin: 10px;
+  width: 36px;
+  height: 30px;
+  background-color: #b8bdbc85;
+  border-radius: 10px;
+  font-weight: bold;
+  border: none;
+  font-size: 18px;
+}
+.operator {
+  margin-left: 175px;
+  margin-top: -200px;
+}
+
+.numInput {
+  margin: 10px;
+  padding: 15px;
+  width: 210px;
+  border-radius: 10px;
+  border: none;
+  background-color: #aeb7c433;
+}
+.operator input {
+  color: #585f5f;
+  background-color: #52ccbf9e;
+  font-size: 18px;
+}
