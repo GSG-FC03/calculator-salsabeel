@@ -10,52 +10,63 @@
       integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./CSS/landingPage.css" />
     <title>calcutator</title>
   </head>
   <body>
     <header>
-      <h1 class="Calculator">
+        <div class="adjust">
+          <i class="fas fa-moon"></i>
+          <i class="fal fa-sun"></i>
+        </div>
+        <div class="name">
+          <h1 class="Calculators">
         Calcutator
         <i class="fal fa-calculator"></i>
       </h1>
       <!-- <h1 class="Converter">Converter
             <i class="far fa-analytics"></i>
         </h1> -->
+       </div> 
     </header>
 
     <main>
       <section class="buttons">
-        <button>Calculator</button>
-        <button>Converter</button>
+        <button class="calculator">Calculator</button>
+        <button class="converter">Converter</button>
       </section>
 
-      <section class="content">
-        <table>
-          <tr>
-            <input />
-          </tr>
-          <tr>
-            <td>9</td>
-            <td>8</td>
-            <td>7</td>
-            <td><i class="fal fa-plus"></i></td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>5</td>
-            <td>4</td>
-            <td><i class="far fa-minus"></i></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>2</td>
-            <td>1</td>
-            <td><i class="far fa-divide"></i></td>
-          </tr>
-          <td>
-            <i class="far fa-equals"></i>
-          </td>
-        </table>
+      <section class="contentCalculator">
+       
+        <div class="number"> 
+          <input class="numInput" type ="text" value=" ">
+          <div>
+            <input type="button" value="9" />
+            <input type="button" value="8" />
+            <input type="button" value="7" />
+          </div>
+          <div>
+            <input type="button" value="6" />
+            <input type="button" value="5" />
+            <input type="button" value="4" />
+          </div>
+          <div>
+            <input type="button" value="3" />
+            <input type="button" value="2" />
+            <input type="button" value="1" />
+          </div>
+          <div>
+            <input type="button" value="0" />
+            <input type="button" value="AC" />
+          </div>
+          <div class="operator">
+            <input type="button" value="+" />
+            <input type="button" value="-" />
+            <input type="button" value="X" />
+            <input type="button" value="÷" />
+            <input type="button" value="=" />
+          </div>
+        </div>
       </section>
     </main>
   </body>
