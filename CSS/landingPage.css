@@ -7,6 +7,7 @@
   margin-top: 55px;
   text-align: center;
   color: #8ad9d1;
+  font-size: 15px;
 }
 .adjust {
   padding: 5px;
@@ -70,4 +71,32 @@ input[type="button"] {
   color: #585f5f;
   background-color: #52ccbf9e;
   font-size: 18px;
+}
+ .darkMode{
+background-color: black;
+}
+.coin1,.coin2{
+padding: 5px;
+margin: 10px;
+border-radius: 5px;
+width: 120px;
+color: #509494;
+}
+
+.select{
+margin-left: 30px;
+}
+.fa-random:before {
+  content: "\f074";
+  border-radius: 5px;
+  border: 2px #00000059 solid;
+  color: #509494;
+  padding: 1px;
+}
+.convertInput {
+  border: 2px #bbd5cc solid;
+  margin: 10px;
+  width: 160px;
+  padding: 5px;
+  border-radius: 5px;
 }
