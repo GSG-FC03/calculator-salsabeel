@@ -11,23 +11,23 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./CSS/landingPage.css" />
-    <title>calcutator</title>
+    <title>calculator</title>
   </head>
-  <body>
+  <body class="light">
     <header>
-        <div class="adjust">
-          <i class="fas fa-moon"></i>
-          <i class="fal fa-sun"></i>
-        </div>
-        <div class="name">
-          <h1 class="Calculators">
-        Calcutator
-        <i class="fal fa-calculator"></i>
-      </h1>
-      <!-- <h1 class="Converter">Converter
+      <div class="adjust">
+        <i onclick="Dark()" class="fas fa-moon"></i>
+        <i class="fal fa-sun"></i>
+      </div>
+      <div class="name">
+        <h1 class="Calculators">
+          Calculator
+          <i class="fal fa-calculator"></i>
+        </h1>
+        <!-- <h1 class="Converter">Converter
             <i class="far fa-analytics"></i>
         </h1> -->
-       </div> 
+      </div>
     </header>
 
     <main>
@@ -35,39 +35,39 @@
         <button class="calculator">Calculator</button>
         <button class="converter">Converter</button>
       </section>
-
-      <section class="contentCalculator">
-       
-        <div class="number"> 
-          <input class="numInput" type ="text" value=" ">
+      <section class="content"></section>
+      <div class="contentCalculator">
+        <div class="number">
+          <input class="numInput" type="text" />
           <div>
-            <input type="button" value="9" />
-            <input type="button" value="8" />
-            <input type="button" value="7" />
+            <input type="button" value="9" class="9" />
+            <input type="button" value="8" class="8" />
+            <input type="button" value="7" class="7" />
           </div>
           <div>
-            <input type="button" value="6" />
-            <input type="button" value="5" />
-            <input type="button" value="4" />
+            <input type="button" value="6" class="6" />
+            <input type="button" value="5" class="5" />
+            <input type="button" value="4" class="4" />
           </div>
           <div>
-            <input type="button" value="3" />
-            <input type="button" value="2" />
-            <input type="button" value="1" />
+            <input type="button" value="3" class="3" />
+            <input type="button" value="2" class="2" />
+            <input type="button" value="1" class="1" />
           </div>
           <div>
-            <input type="button" value="0" />
-            <input type="button" value="AC" />
+            <input type="button" value="0" class="0" />
+            <input type="button" value="AC" class="delete" />
           </div>
           <div class="operator">
-            <input type="button" value="+" />
-            <input type="button" value="-" />
-            <input type="button" value="X" />
-            <input type="button" value="÷" />
-            <input type="button" value="=" />
+            <input type="button" value="+" class="plus" />
+            <input type="button" value="-" class="subtract" />
+            <input type="button" value="X" class="multipy" />
+            <input type="button" value="÷" class="divide" />
+            <input type="button" value="=" class="equal" />
           </div>
         </div>
-      </section>
+      </div>
     </main>
+    <script src="Javascript/main.js"></script>
   </body>
 </html>
