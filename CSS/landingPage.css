@@ -36,7 +36,7 @@
 }
 .number {
   margin: 16px;
-  margin-left:55px;
+  margin-left: 55px;
   padding: 10px;
   width: 260px;
   border: 2px #cde2dba6 solid;
@@ -72,19 +72,20 @@ input[type="button"] {
   background-color: #52ccbf9e;
   font-size: 18px;
 }
- .darkMode{
-background-color: black;
+.darkMode {
+  background-color: black;
 }
-.coin1,.coin2{
-padding: 5px;
-margin: 10px;
-border-radius: 5px;
-width: 120px;
-color: #509494;
+.coin1,
+.coin2 {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  width: 120px;
+  color: #509494;
 }
 
-.select{
-margin-left: 30px;
+.select {
+  margin-left: 30px;
 }
 .fa-random:before {
   content: "\f074";
