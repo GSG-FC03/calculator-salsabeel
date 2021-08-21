@@ -1,262 +1,222 @@
+const header = document.getElementsByClassName("headerConverter")[0];
+const headerName = document.getElementsByClassName("headerCalculator")[0];
+const DL = document.getElementById("DL");
+
 const numInput = document.getElementsByClassName("numInput")[0];
-const sun = document.getElementsByClassName("light")[0];
 const calculatorBtn = document.getElementsByClassName("calculator")[0];
 const converterBtn = document.getElementsByClassName("converter")[0];
-const body = document.body;
-const headerName = document.getElementsByClassName("name")[0];
-const nine = document.getElementsByClassName("9")[0];
-const eight = document.getElementsByClassName("8")[0];
-const seven = document.getElementsByClassName("7")[0];
-const six = document.getElementsByClassName("6")[0];
-const five = document.getElementsByClassName("5")[0];
-const four = document.getElementsByClassName("4")[0];
-const three = document.getElementsByClassName("3")[0];
-const two = document.getElementsByClassName("2")[0];
-const one = document.getElementsByClassName("1")[0];
-const zero = document.getElementsByClassName("0")[0];
-
-const plus = document.getElementsByClassName("plus")[0];
-const subtract = document.getElementsByClassName("subtract")[0];
-const multipy = document.getElementsByClassName("multipy")[0];
-const divide = document.getElementsByClassName("divide")[0];
-const equal = document.getElementsByClassName("equal")[0];
 const contentCalculator =
   document.getElementsByClassName("contentCalculator")[0];
 const content = document.getElementsByClassName("content")[0];
 
+const number = document.querySelectorAll(".number");
+const operator = document.querySelectorAll(".operator");
+const equal = document.getElementsByClassName("equal")[0];
+const deleteBtn = document.getElementsByClassName("delete")[0];
+let arrValues = [];
+
 // the DarkLight mode
-function Dark() {
-  sun.classList.toggle("darkMode");
-}
 
-calculatorBtn.addEventListener("click", function () {
-  contentCalculator.style.display = "block";
-  content.textContent = "";
-});
-
-//write numbers in input field
-nine.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 9;
-  } else numInput.value = numInput.value + 9;
-});
-eight.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 8;
-  } else numInput.value = numInput.value + 8;
-});
-seven.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 7;
-  } else numInput.value = numInput.value + 7;
-});
-six.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 6;
-  } else numInput.value = numInput.value + 6;
-});
-five.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 5;
-  } else numInput.value = numInput.value + 5;
-});
-four.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 4;
-  } else numInput.value = numInput.value + 4;
-});
-three.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 3;
-  } else numInput.value = numInput.value + 3;
-});
-two.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 2;
-  } else numInput.value = numInput.value + 2;
-});
-one.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 1;
-  } else numInput.value = numInput.value + 1;
-});
-zero.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 0;
-  } else numInput.value = numInput.value + 0;
-});
-
-// the calculations
-plus.addEventListener("click", function () {
-  if (numInput.value != null) {
-    localStorage.clear();
-    const addToLocalSt1 = localStorage.setItem("number1", numInput.value);
-    numInput.value = "";
-  }
-  if (numInput.value != null) {
-    equal.addEventListener("click", function () {
-      const addToLocalSt2 = localStorage.setItem("number2", numInput.value);
-      numInput.value =
-        JSON.parse(localStorage.getItem("number1")) +
-        JSON.parse(localStorage.getItem("number2"));
-      // const addToLocalSt3=localStorage.setItem("numbers3",numInput.value)
+    DL.addEventListener("change", () => {
+    document.body.classList.toggle("dark");
     });
-  }
-});
 
-// subtract.addEventListener("click",function(){
-//     if(numInput.value!=null){
-//       localStorage.clear();
-//       const addToLocalSt1=localStorage.setItem("number1",numInput.value)
-//     numInput.value="";
-//     } if(numInput.value!=null){
-//      equal.addEventListener("click",function(){
-//         const addToLocalSt2=localStorage.setItem("number2",numInput.value)
-//          numInput.value= JSON.parse(localStorage.getItem("number1"))-JSON.parse(localStorage.getItem("number2"));
-//         const addToLocalSt3=localStorage.setItem("numbers3",numInput.value)
-//         })}
 
-// })
-// multipy.addEventListener("click",function(){
-//     if(numInput.value!=null){
-//       localStorage.clear();
-//       const addToLocalSt1=localStorage.setItem("number1",numInput.value)
-//     numInput.value="";
-//     } if(numInput.value!=null){
-//      equal.addEventListener("click",function(){
-//         const addToLocalSt2=localStorage.setItem("number2",numInput.value)
-//          numInput.value= JSON.parse(localStorage.getItem("number1"))*JSON.parse(localStorage.getItem("number2"));
-//         const addToLocalSt3=localStorage.setItem("numbers3",numInput.value)
-//         })}
+// Calculator
 
-// })
+    // for calculator header
+        calculatorBtn.addEventListener("click", function () {
+        contentCalculator.style.display = "block";
+        headerName.style.display = "block";
+        content.textContent = "";
+        header.textContent = "";
+        });
 
-// divide.addEventListener("click",function(){
-//     if(numInput.value!=null){
-//       localStorage.clear();
-//       const addToLocalSt1=localStorage.setItem("number1",numInput.value)
-//     numInput.value="";
-//     } if(numInput.value!=null){
-//      equal.addEventListener("click",function(){
-//         const addToLocalSt2=localStorage.setItem("number2",numInput.value)
-//          numInput.value= JSON.parse(localStorage.getItem("number1"))/JSON.parse(localStorage.getItem("number2"));
-//         const addToLocalSt3=localStorage.setItem("numbers3",numInput.value)
-//         })}
+    // to write numbers in numInput
+        number.forEach((num) => {
+        num.addEventListener("click", function () {
+            numInput.value = numInput.value + num.value;
+        });
+        });
 
-// })
+    // when i click on AC delete the value in numInput
+        deleteBtn.addEventListener("click", function () {
+        numInput.value = "";
+        });
 
-converterBtn.addEventListener("click", function () {
-  contentCalculator.style.display = "none";
-  content.textContent = "";
-  headerName.textContent = "";
+    //when i click on operator save the numInput in array as index1 and the kind of operator
+        operator.forEach((ope) => {
+        ope.addEventListener("click", function () {
+            if (ope.value == "+") {
+            const currentValue = numInput.value;
+            arrValues[0] = currentValue;
+            numInput.value = "";
+            arrValues[2] = "+";
+            }
+            if (ope.value == "-") {
+            const currentValue = numInput.value;
+            arrValues[0] = currentValue;
+            numInput.value = "";
+            arrValues[2] = "-";
+            }
+            if (ope.value == "X") {
+            const currentValue = numInput.value;
+            arrValues[0] = currentValue;
+            numInput.value = "";
+            arrValues[2] = "X";
+            }
+            if (ope.value == "÷") {
+            const currentValue = numInput.value;
+            arrValues[0] = currentValue;
+            numInput.value = "";
+            arrValues[2] = "÷";
+            }
+        });
+        });
+    // make operation to numIput like  add subtract division Multiply when l click on =
+            equal.addEventListener("click", function () {
+        if (arrValues[2] === "+") {
+            const secondValue = numInput.value;
+            arrValues[1] = secondValue;
+            arrValues[3] = Number(arrValues[1]) + Number(arrValues[0]);
+            numInput.value = arrValues[3];
+        }
 
-  const contentConverter = document.createElement("div");
-  content.appendChild(contentConverter);
+        if (arrValues[2] === "-") {
+            const secondValue = numInput.value;
+            arrValues[1] = secondValue;
+            arrValues[3] = Number(arrValues[0]) - Number(arrValues[1]);
+            numInput.value = arrValues[3];
+        }
+        if (arrValues[2] === "X") {
+            const secondValue = numInput.value;
+            arrValues[1] = secondValue;
+            arrValues[3] = Number(arrValues[1]) * Number(arrValues[0]);
+            numInput.value = arrValues[3];
+        }
+        if (arrValues[2] === "÷") {
+            const secondValue = numInput.value;
+            arrValues[1] = secondValue;
+            arrValues[3] = Number(arrValues[0]) / Number(arrValues[1]);
+            numInput.value = arrValues[3];
+        }
+        });
 
-  const name = document.createElement("h1");
-  name.textContent = "Converter ";
-  headerName.appendChild(name);
 
-  const icon = document.createElement("i");
-  icon.setAttribute("class", "far fa-analytics");
-  name.appendChild(icon);
+// Converter
+        converterBtn.addEventListener("click", function () {
+        contentCalculator.style.display = "none";
+        content.textContent = "";
+        header.textContent = "";
+        headerName.style.display = "none";
 
-  // the first coin
-  const div1 = document.createElement("div");
-  div1.setAttribute("class", "select");
-  contentConverter.appendChild(div1);
+        const contentConverter = document.createElement("div");
+        content.appendChild(contentConverter);
+        contentConverter.setAttribute("class", "name1");
 
-  const coin1 = document.createElement("select");
-  coin1.setAttribute("class", "coin1");
-  div1.appendChild(coin1);
+        const name = document.createElement("h1");
+        name.textContent = "Converter ";
+        header.appendChild(name);
 
-  const option1 = document.createElement("option");
-  coin1.appendChild(option1);
-  option1.textContent = "Shekels";
+        const icon = document.createElement("i");
+        icon.setAttribute("class", "far fa-analytics");
+        name.appendChild(icon);
 
-  const option2 = document.createElement("option");
-  coin1.appendChild(option2);
-  option2.textContent = " Dollars";
+    // the first coin
+        const div1 = document.createElement("div");
+        div1.setAttribute("class", "select");
+        contentConverter.appendChild(div1);
 
-  const option3 = document.createElement("option");
-  coin1.appendChild(option3);
-  option3.textContent = " Euros";
+        const coin1 = document.createElement("select");
+        coin1.setAttribute("class", "coin1");
+        div1.appendChild(coin1);
 
-  const switch1 = document.createElement("i");
-  switch1.setAttribute("class", "fas fa-random");
-  div1.appendChild(switch1);
+        const option1 = document.createElement("option");
+        coin1.appendChild(option1);
+        option1.textContent = "Shekels";
 
-  //the convert currency
+        const option2 = document.createElement("option");
+        coin1.appendChild(option2);
+        option2.textContent = " Dollars";
 
-  const coin2 = document.createElement("select");
-  coin2.setAttribute("class", "coin2");
-  div1.appendChild(coin2);
+        const option3 = document.createElement("option");
+        coin1.appendChild(option3);
+        option3.textContent = " Euros";
 
-  const option4 = document.createElement("option");
-  coin2.appendChild(option4);
-  option4.textContent = "Dollars";
+        const switch1 = document.createElement("i");
+        switch1.setAttribute("class", "fas fa-random");
+        div1.appendChild(switch1);
 
-  const option5 = document.createElement("option");
-  coin2.appendChild(option5);
-  option5.textContent = "Shekels";
+//the convert currency
 
-  const option6 = document.createElement("option");
-  coin2.appendChild(option6);
-  option6.textContent = " Euros";
+        const coin2 = document.createElement("select");
+        coin2.setAttribute("class", "coin2");
+        div1.appendChild(coin2);
 
-  //dives contain input convertet
-  const div2 = document.createElement("div");
-  div2.setAttribute("class", "convert");
-  contentConverter.appendChild(div2);
+        const option4 = document.createElement("option");
+        coin2.appendChild(option4);
+        option4.textContent = "Dollars";
 
-  const input1 = document.createElement("input");
-  input1.setAttribute("class", "convertInput");
-  div2.appendChild(input1);
+        const option5 = document.createElement("option");
+        coin2.appendChild(option5);
+        option5.textContent = "Shekels";
 
-  const input2 = document.createElement("input");
-  input2.setAttribute("class", "convertInput");
-  div2.appendChild(input2);
+        const option6 = document.createElement("option");
+        coin2.appendChild(option6);
+        option6.textContent = " Euros";
 
-  //convert from shekels to dollars
-  if (option1 && option4) {
-    input1.onkeypress = function (e) {
-      if (e.key === "Enter") input2.value = (input1.value / 3.25).toFixed(3);
-    };
-  }
+    //dives contain input convertet
+        const div2 = document.createElement("div");
+        div2.setAttribute("class", "convert");
+        contentConverter.appendChild(div2);
 
-  //convert from dollars to shekels
-  else if (option2 && option2) {
-    input1.onkeypress = function (e) {
-      if (e.key === "Enter") input2.value = input1.value * 3.25;
-    };
-  }
-  //convert from shekels to euros
-  else if (option1 && option6) {
-    input1.onkeypress = function (e) {
-      if (e.key === "Enter") input2.value = (input1.value / 3.8).toFixed(3);
-    };
-  }
-  //convert from euros to shekels
-  else if (option1 && option6) {
-    input1.onkeypress = function (e) {
-      if (e.key === "Enter") input2.value = input1.value * 3.8;
-    };
-  }
+        const input1 = document.createElement("input");
+        input1.setAttribute("class", "convertInput");
+        div2.appendChild(input1);
 
-  switch1.addEventListener("click", function () {
-    const switch2 = coin1.value;
-    coin1.value = coin2.value;
-    coin2.value = switch2;
-    // location.reload();
-  });
-});
+        const input2 = document.createElement("input");
+        input2.setAttribute("class", "convertInput");
+        div2.appendChild(input2);
+
+    //convert from shekels to dollars
+        if (coin1.value === "Shekels" && coin2.value === "Dollars") {
+            input1.onkeypress = function (e) {
+            if (e.key === "Enter") input2.value = input1.value / 3.25;
+            };
+        }
+        if (coin1.value === "Dollars" && coin2.value === "Shekels") {
+            input1.onkeypress = function (e) {
+            if (e.key === "Enter") input2.value = input1.value * 3.25;
+            };
+        }
+
+    //convert from dollars to shekels
+        if (coin1.value === "Dollars" && coin2.value === "Shekels") {
+            console(1111111111);
+            input1.onkeypress = function (e) {
+            if (e.key === "Enter") console(1111111111, input2.value);
+            input2.value = input1.value * 3.25;
+            };
+        }
+    //convert from shekels to euros
+        if (coin1.value === "Shekels" && coin2.value === "Euros") {
+            input1.onkeypress = function (e) {
+            if (e.key === "Enter") input2.value = input1.value / 3.8;
+            console(1111111111, input2.value);
+            };
+        }
+    //convert from euros to shekels
+        if (coin1.value === "Euros" && coin2.value === "Shekels") {
+            input1.onkeypress = function (e) {
+            if (e.key === "Enter") input2.value = input1.value * 3.8;
+            console(1111111111, input2.value);
+            };
+        }
+
+        switch1.addEventListener("click", function () {
+            const switch2 = coin1.value;
+            coin1.value = coin2.value;
+            coin2.value = switch2;
+    
+        });
+        });

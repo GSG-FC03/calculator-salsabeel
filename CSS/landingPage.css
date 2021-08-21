@@ -3,12 +3,15 @@
   margin: 0;
   box-sizing: border-box;
 }
-.name {
+/* for Calculator and Converter namein header */
+.headerCalculator,
+.headerConverter {
   margin-top: 55px;
   text-align: center;
   color: #8ad9d1;
-  font-size: 15px;
+  font-size: 20px;
 }
+/* for the div contain the moon and sun (darck and light) */
 .adjust {
   padding: 5px;
   color: #758888ab;
@@ -19,6 +22,61 @@
   left: 305px;
   top: 5px;
 }
+body {
+  background-color: #f8ffef;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+body.dark {
+  background: #00081f;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  background-color: #11111124;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  height: 26px;
+  width: 50px;
+  transform: scale(1.5);
+}
+
+.label .ball {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  height: 24px;
+  width: 24px;
+  transform: translateX(0px);
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(24px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+/* for button Calculator and button Converter   */
 .buttons {
   margin: 10px;
   text-align: center;
@@ -29,16 +87,17 @@
 .calculator {
   color: #758888;
   padding: 10px;
-  background: #ffe1e6cc;
+  background: #fed9dfeb;
   font-size: 19px;
   border-radius: 10px;
   border: none;
 }
-.number {
-  margin: 16px;
+/* style for numbers in  calculator  */
+.numbers {
+  margin: 75px;
   margin-left: 55px;
   padding: 10px;
-  width: 260px;
+  width: 270px;
   border: 2px #cde2dba6 solid;
   background-color: #dbe4e24d;
   border-radius: 10px;
@@ -52,29 +111,29 @@ input[type="button"] {
   border-radius: 10px;
   font-weight: bold;
   border: none;
-  font-size: 18px;
+  font-size: 19px;
+  margin-left: 14px;
 }
-.operator {
-  margin-left: 175px;
+/* style for operator buttons in  calculator  */
+.operatorDiv {
+  margin-left: 185px;
   margin-top: -200px;
 }
-
+/* for input that shows numbers I wrote */
 .numInput {
   margin: 10px;
   padding: 15px;
-  width: 210px;
+  width: 230px;
   border-radius: 10px;
   border: none;
   background-color: #aeb7c433;
 }
-.operator input {
-  color: #585f5f;
-  background-color: #52ccbf9e;
+.operatorDiv input {
+  color: #862043;
+  background-color: #52ccc08a;
   font-size: 18px;
 }
-.darkMode {
-  background-color: black;
-}
+/* for selected coins in converter */
 .coin1,
 .coin2 {
   padding: 5px;
@@ -87,6 +146,7 @@ input[type="button"] {
 .select {
   margin-left: 30px;
 }
+
 .fa-random:before {
   content: "\f074";
   border-radius: 5px;
