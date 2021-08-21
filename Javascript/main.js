@@ -124,6 +124,8 @@ converterBtn.addEventListener("click", function () {
 
   const coin1 = document.createElement("select");
   coin1.setAttribute("class", "coin1");
+  //   coin1.setAttribute("onchange", "arr()");
+
   div1.appendChild(coin1);
 
   const option1 = document.createElement("option");
@@ -144,6 +146,7 @@ converterBtn.addEventListener("click", function () {
 
   const coin2 = document.createElement("select");
   coin2.setAttribute("class", "coin2");
+  //   coin2.setAttribute("onchange", "arr()");
   div1.appendChild(coin2);
 
   const option4 = document.createElement("option");
@@ -172,6 +175,9 @@ converterBtn.addEventListener("click", function () {
   div2.appendChild(input2);
 
   //the convert currency
+
+  // coin1.onchange=function arr() {
+
   input1.oninput = function (e) {
     //convert from shekels to dollars and Euros
     if (coin1.value === "Shekels" && input1.value !== "") {
@@ -195,18 +201,19 @@ converterBtn.addEventListener("click", function () {
           input2.value = input1.value * 1;
           break;
         case "Euros":
-          input2.value = input1.value * 2000;
+          input2.value = input1.value * 1.17;
           break;
 
         case "Shekels":
           input2.value = input1.value * 3.24;
           break;
       }
-    } //convert from euros to shekels and Dollars
+    }
+    //convert from euros to shekels and Dollars
     if (coin1.value === "Euros" && input1.value !== "") {
       switch (coin2.value) {
         case "Dollars":
-          input2.value = input1.value * 15;
+          input2.value = input1.value / (1.17).toFixed(3);
           break;
         case "Euros":
           input2.value = input1.value * 1;
@@ -247,7 +254,7 @@ converterBtn.addEventListener("click", function () {
           input2.value = input1.value * 1;
           break;
         case "Euros":
-          input2.value = input1.value * 2000;
+          input2.value = input1.value * 1.17;
           break;
 
         case "Shekels":
@@ -260,7 +267,7 @@ converterBtn.addEventListener("click", function () {
     if (coin1.value === "Euros" && input1.value !== "") {
       switch (coin2.value) {
         case "Dollars":
-          input2.value = input1.value * 15;
+          input2.value = input1.value / (1.17).toFixed(3);
           break;
         case "Euros":
           input2.value = input1.value * 1;
