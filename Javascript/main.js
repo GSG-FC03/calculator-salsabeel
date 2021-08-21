@@ -1,159 +1,105 @@
+const header = document.getElementsByClassName("headerConverter")[0];
+const headerName = document.getElementsByClassName("headerCalculator")[0];
+const DL = document.getElementById("DL");
+
 const numInput = document.getElementsByClassName("numInput")[0];
-const sun = document.getElementsByClassName("light")[0];
 const calculatorBtn = document.getElementsByClassName("calculator")[0];
 const converterBtn = document.getElementsByClassName("converter")[0];
-const body = document.body;
-const headerName = document.getElementsByClassName("name")[0];
-const nine = document.getElementsByClassName("9")[0];
-const eight = document.getElementsByClassName("8")[0];
-const seven = document.getElementsByClassName("7")[0];
-const six = document.getElementsByClassName("6")[0];
-const five = document.getElementsByClassName("5")[0];
-const four = document.getElementsByClassName("4")[0];
-const three = document.getElementsByClassName("3")[0];
-const two = document.getElementsByClassName("2")[0];
-const one = document.getElementsByClassName("1")[0];
-const zero = document.getElementsByClassName("0")[0];
-
-const plus = document.getElementsByClassName("plus")[0];
-const subtract = document.getElementsByClassName("subtract")[0];
-const multipy = document.getElementsByClassName("multipy")[0];
-const divide = document.getElementsByClassName("divide")[0];
-const equal = document.getElementsByClassName("equal")[0];
 const contentCalculator =
   document.getElementsByClassName("contentCalculator")[0];
 const content = document.getElementsByClassName("content")[0];
 
-// the DarkLight mode
-function Dark() {
-  sun.classList.toggle("darkMode");
-}
+const number = document.querySelectorAll(".number");
+const operator = document.querySelectorAll(".operator");
+const equal = document.getElementsByClassName("equal")[0];
+const deleteBtn = document.getElementsByClassName("delete")[0];
+let arrValues = [];
 
+// the DarkLight mode
+
+DL.addEventListener("change", () => {
+  document.body.classList.toggle("dark");
+});
+
+//  Calculator
+
+// for calculator header
 calculatorBtn.addEventListener("click", function () {
   contentCalculator.style.display = "block";
+  headerName.style.display = "block";
   content.textContent = "";
+  header.textContent = "";
 });
 
-//write numbers in input field
-nine.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 9;
-  } else numInput.value = numInput.value + 9;
-});
-eight.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 8;
-  } else numInput.value = numInput.value + 8;
-});
-seven.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 7;
-  } else numInput.value = numInput.value + 7;
-});
-six.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 6;
-  } else numInput.value = numInput.value + 6;
-});
-five.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 5;
-  } else numInput.value = numInput.value + 5;
-});
-four.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 4;
-  } else numInput.value = numInput.value + 4;
-});
-three.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 3;
-  } else numInput.value = numInput.value + 3;
-});
-two.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 2;
-  } else numInput.value = numInput.value + 2;
-});
-one.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 1;
-  } else numInput.value = numInput.value + 1;
-});
-zero.addEventListener("click", function () {
-  if (localStorage.getItem("numbers3") !== null) {
-    localStorage.clear();
-    numInput.value = 0;
-  } else numInput.value = numInput.value + 0;
+// to write numbers in numInput
+number.forEach((num) => {
+  num.addEventListener("click", function () {
+    numInput.value = numInput.value + num.value;
+  });
 });
 
-// the calculations
-plus.addEventListener("click", function () {
-  if (numInput.value != null) {
-    localStorage.clear();
-    const addToLocalSt1 = localStorage.setItem("number1", numInput.value);
-    numInput.value = "";
+// when i click on AC delete the value in numInput
+deleteBtn.addEventListener("click", function () {
+  numInput.value = "";
+});
+
+//when i click on operator save the numInput in array as index1 and the kind of operator
+operator.forEach((ope) => {
+  ope.addEventListener("click", function () {
+    if (ope.value == "+") {
+      const currentValue = numInput.value;
+      arrValues[0] = currentValue;
+      numInput.value = "";
+      arrValues[2] = "+";
+    }
+    if (ope.value == "-") {
+      const currentValue = numInput.value;
+      arrValues[0] = currentValue;
+      numInput.value = "";
+      arrValues[2] = "-";
+    }
+    if (ope.value == "X") {
+      const currentValue = numInput.value;
+      arrValues[0] = currentValue;
+      numInput.value = "";
+      arrValues[2] = "X";
+    }
+    if (ope.value == "÷") {
+      const currentValue = numInput.value;
+      arrValues[0] = currentValue;
+      numInput.value = "";
+      arrValues[2] = "÷";
+    }
+  });
+});
+// make operation to numIput like  add subtract division Multiply when l click on =
+equal.addEventListener("click", function () {
+  if (arrValues[2] === "+") {
+    const secondValue = numInput.value;
+    arrValues[1] = secondValue;
+    arrValues[3] = Number(arrValues[1]) + Number(arrValues[0]);
+    numInput.value = arrValues[3];
   }
-  if (numInput.value != null) {
-    equal.addEventListener("click", function () {
-      const addToLocalSt2 = localStorage.setItem("number2", numInput.value);
-      numInput.value =
-        JSON.parse(localStorage.getItem("number1")) +
-        JSON.parse(localStorage.getItem("number2"));
-      // const addToLocalSt3=localStorage.setItem("numbers3",numInput.value)
-    });
+
+  if (arrValues[2] === "-") {
+    const secondValue = numInput.value;
+    arrValues[1] = secondValue;
+    arrValues[3] = Number(arrValues[0]) - Number(arrValues[1]);
+    numInput.value = arrValues[3];
+  }
+  if (arrValues[2] === "X") {
+    const secondValue = numInput.value;
+    arrValues[1] = secondValue;
+    arrValues[3] = Number(arrValues[1]) * Number(arrValues[0]);
+    numInput.value = arrValues[3];
+  }
+  if (arrValues[2] === "÷") {
+    const secondValue = numInput.value;
+    arrValues[1] = secondValue;
+    arrValues[3] = Number(arrValues[0]) / Number(arrValues[1]);
+    numInput.value = arrValues[3];
   }
 });
-
-// subtract.addEventListener("click",function(){
-//     if(numInput.value!=null){
-//       localStorage.clear();
-//       const addToLocalSt1=localStorage.setItem("number1",numInput.value)
-//     numInput.value="";
-//     } if(numInput.value!=null){
-//      equal.addEventListener("click",function(){
-//         const addToLocalSt2=localStorage.setItem("number2",numInput.value)
-//          numInput.value= JSON.parse(localStorage.getItem("number1"))-JSON.parse(localStorage.getItem("number2"));
-//         const addToLocalSt3=localStorage.setItem("numbers3",numInput.value)
-//         })}
-
-// })
-// multipy.addEventListener("click",function(){
-//     if(numInput.value!=null){
-//       localStorage.clear();
-//       const addToLocalSt1=localStorage.setItem("number1",numInput.value)
-//     numInput.value="";
-//     } if(numInput.value!=null){
-//      equal.addEventListener("click",function(){
-//         const addToLocalSt2=localStorage.setItem("number2",numInput.value)
-//          numInput.value= JSON.parse(localStorage.getItem("number1"))*JSON.parse(localStorage.getItem("number2"));
-//         const addToLocalSt3=localStorage.setItem("numbers3",numInput.value)
-//         })}
-
-// })
-
-// divide.addEventListener("click",function(){
-//     if(numInput.value!=null){
-//       localStorage.clear();
-//       const addToLocalSt1=localStorage.setItem("number1",numInput.value)
-//     numInput.value="";
-//     } if(numInput.value!=null){
-//      equal.addEventListener("click",function(){
-//         const addToLocalSt2=localStorage.setItem("number2",numInput.value)
-//          numInput.value= JSON.parse(localStorage.getItem("number1"))/JSON.parse(localStorage.getItem("number2"));
-//         const addToLocalSt3=localStorage.setItem("numbers3",numInput.value)
-//         })}
-
-// })
 
 converterBtn.addEventListener("click", function () {
   contentCalculator.style.display = "none";
@@ -234,7 +180,7 @@ converterBtn.addEventListener("click", function () {
           input2.value = input1.value / (3.24).toFixed(3);
           break;
         case "Euros":
-          input2.value = input1.value/ (3.79).toFixed(3);
+          input2.value = input1.value / (3.79).toFixed(3);
           break;
 
         case "Shekels":
@@ -275,8 +221,8 @@ converterBtn.addEventListener("click", function () {
 
   switch1.addEventListener("click", function () {
     const switch2 = coin1.value;
-        coin1.value = coin2.value;
-        coin2.value = switch2;
+    coin1.value = coin2.value;
+    coin2.value = switch2;
 
     //convert from shekels to euros  and Dollars
     if (coin1.value === "Shekels" && input1.value !== "") {
@@ -285,7 +231,7 @@ converterBtn.addEventListener("click", function () {
           input2.value = input1.value / (3.24).toFixed(3);
           break;
         case "Euros":
-          input2.value = input1.value /(3.79).toFixed(3);
+          input2.value = input1.value / (3.79).toFixed(3);
           break;
 
         case "Shekels":
@@ -321,7 +267,7 @@ converterBtn.addEventListener("click", function () {
           break;
 
         case "Shekels":
-          input2.value = input1.value *3.79;
+          input2.value = input1.value * 3.79;
           break;
       }
     }
