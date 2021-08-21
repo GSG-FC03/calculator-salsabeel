@@ -196,8 +196,6 @@ converterBtn.addEventListener("click", function () {
   switch1.setAttribute("class", "fas fa-random");
   div1.appendChild(switch1);
 
-  //the convert currency
-
   const coin2 = document.createElement("select");
   coin2.setAttribute("class", "coin2");
   div1.appendChild(coin2);
@@ -227,36 +225,105 @@ converterBtn.addEventListener("click", function () {
   input2.setAttribute("class", "convertInput");
   div2.appendChild(input2);
 
-  //convert from shekels to dollars
-  if (option1 && option4) {
-    input1.onkeypress = function (e) {
-      if (e.key === "Enter") input2.value = (input1.value / 3.25).toFixed(3);
-    };
-  }
+  //the convert currency
+  input1.oninput = function (e) {
+    //convert from shekels to dollars and Euros
+    if (coin1.value === "Shekels" && input1.value !== "") {
+      switch (coin2.value) {
+        case "Dollars":
+          input2.value = input1.value / (3.24).toFixed(3);
+          break;
+        case "Euros":
+          input2.value = input1.value/ (3.79).toFixed(3);
+          break;
 
-  //convert from dollars to shekels
-  else if (option2 && option2) {
-    input1.onkeypress = function (e) {
-      if (e.key === "Enter") input2.value = input1.value * 3.25;
-    };
-  }
-  //convert from shekels to euros
-  else if (option1 && option6) {
-    input1.onkeypress = function (e) {
-      if (e.key === "Enter") input2.value = (input1.value / 3.8).toFixed(3);
-    };
-  }
-  //convert from euros to shekels
-  else if (option1 && option6) {
-    input1.onkeypress = function (e) {
-      if (e.key === "Enter") input2.value = input1.value * 3.8;
-    };
-  }
+        case "Shekels":
+          input2.value = input1.value * 1;
+          break;
+      }
+    }
+    //convert from dollars to shekels and euros
+    if (coin1.value === "Dollars" && input1.value !== "") {
+      switch (coin2.value) {
+        case "Dollars":
+          input2.value = input1.value * 1;
+          break;
+        case "Euros":
+          input2.value = input1.value * 2000;
+          break;
+
+        case "Shekels":
+          input2.value = input1.value * 3.24;
+          break;
+      }
+    } //convert from euros to shekels and Dollars
+    if (coin1.value === "Euros" && input1.value !== "") {
+      switch (coin2.value) {
+        case "Dollars":
+          input2.value = input1.value * 15;
+          break;
+        case "Euros":
+          input2.value = input1.value * 1;
+          break;
+
+        case "Shekels":
+          input2.value = input1.value * 3.79;
+          break;
+      }
+    }
+  };
 
   switch1.addEventListener("click", function () {
     const switch2 = coin1.value;
-    coin1.value = coin2.value;
-    coin2.value = switch2;
-    // location.reload();
+        coin1.value = coin2.value;
+        coin2.value = switch2;
+
+    //convert from shekels to euros  and Dollars
+    if (coin1.value === "Shekels" && input1.value !== "") {
+      switch (coin2.value) {
+        case "Dollars":
+          input2.value = input1.value / (3.24).toFixed(3);
+          break;
+        case "Euros":
+          input2.value = input1.value /(3.79).toFixed(3);
+          break;
+
+        case "Shekels":
+          input2.value = input1.value * 1;
+          break;
+      }
+    }
+
+    //convert from dollars to shekels and euros
+    if (coin1.value === "Dollars" && input1.value !== "") {
+      switch (coin2.value) {
+        case "Dollars":
+          input2.value = input1.value * 1;
+          break;
+        case "Euros":
+          input2.value = input1.value * 2000;
+          break;
+
+        case "Shekels":
+          input2.value = input1.value * 3.24;
+          break;
+      }
+    }
+
+    //convert from euros to shekels and Dollars
+    if (coin1.value === "Euros" && input1.value !== "") {
+      switch (coin2.value) {
+        case "Dollars":
+          input2.value = input1.value * 15;
+          break;
+        case "Euros":
+          input2.value = input1.value * 1;
+          break;
+
+        case "Shekels":
+          input2.value = input1.value *3.79;
+          break;
+      }
+    }
   });
 });
