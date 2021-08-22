@@ -5,7 +5,7 @@ It converts some currencies such as shekel, dollar and euro.
 
 ## Links
 
-- - [live Server] (https://gsg-fc03.github.io/calculator-salsabeel/)
+- [live Server] (https://gsg-fc03.github.io/calculator-salsabeel/)
 
 ## How to install it in your device:
 
