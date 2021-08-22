@@ -13,11 +13,12 @@ const number = document.querySelectorAll(".number");
 const operator = document.querySelectorAll(".operator");
 const equal = document.getElementsByClassName("equal")[0];
 const deleteBtn = document.getElementsByClassName("delete")[0];
+const dot = document.getElementsByClassName("dot")[0];
 let arrValues = [];
 
 // the DarkLight mode
 
-DL.addEventListener("change",() => {
+DL.addEventListener("change", () => {
   document.body.classList.toggle("dark");
 });
 
@@ -36,6 +37,18 @@ number.forEach((num) => {
   num.addEventListener("click", function () {
     numInput.value = numInput.value + num.value;
   });
+});
+
+// dot in numinput this make it doesn't repeats
+dot.addEventListener("click", function () {
+  const num = numInput.value;
+  const numToStringe = num.toString();
+
+  if (numToStringe.includes(".")) {
+    numInput.value = numInput.value;
+  } else {
+    numInput.value = numInput.value + dot.value;
+  }
 });
 
 // when i click on AC delete the value in numInput
@@ -100,6 +113,8 @@ equal.addEventListener("click", function () {
     numInput.value = arrValues[3];
   }
 });
+
+// Convert
 
 converterBtn.addEventListener("click", function () {
   contentCalculator.style.display = "none";
@@ -174,59 +189,55 @@ converterBtn.addEventListener("click", function () {
   input2.setAttribute("class", "convertInput");
   div2.appendChild(input2);
 
-  //the convert currency
-
   // coin1.onchange=function arr() {
 
+  //the convert currency
   input1.oninput = function (e) {
     //convert from shekels to dollars and Euros
     if (coin1.value === "Shekels" && input1.value !== "") {
-     
-      switch (coin2.value) {  
-         
+      switch (coin2.value) {
         case "Dollars":
-          input2.value = (input1.value / (3.24)).toFixed(3)+"  USD";
+          input2.value = (input1.value / 3.24).toFixed(3) + "  USD";
           break;
 
         case "Euros":
-            
-          input2.value = (input1.value / (3.79)).toFixed(3)+"  EUR";
+          input2.value = (input1.value / 3.79).toFixed(3) + "  EUR";
           break;
 
         case "Shekels":
-          input2.value = input1.value * 1+"  NIS";
+          input2.value = input1.value * 1 + "  NIS";
           break;
       }
     }
     //convert from dollars to shekels and euros
     if (coin1.value === "Dollars" && input1.value !== "") {
-        input1.value=input1.value+"  USD";
+      input1.value = input1.value + "  USD";
       switch (coin2.value) {
         case "Dollars":
-          input2.value = input1.value * 1+"  USD";
+          input2.value = input1.value * 1 + "  USD";
           break;
         case "Euros":
-          input2.value = (input1.value * 1.17).toFixed(3)+"  EUR";
+          input2.value = (input1.value * 1.17).toFixed(3) + "  EUR";
           break;
 
         case "Shekels":
-          input2.value = (input1.value * 3.24).toFixed(3)+"  NIS";
+          input2.value = (input1.value * 3.24).toFixed(3) + "  NIS";
           break;
       }
     }
     //convert from euros to shekels and Dollars
     if (coin1.value === "Euros" && input1.value !== "") {
-        input1.value=input1.value+"  EUR"
+      input1.value = input1.value + "  EUR";
       switch (coin2.value) {
         case "Dollars":
-          input2.value =( input1.value / (1.17)).toFixed(3)+"  USD";
+          input2.value = (input1.value / 1.17).toFixed(3) + "  USD";
           break;
         case "Euros":
-          input2.value = input1.value * 1+"  EUR";
+          input2.value = input1.value * 1 + "  EUR";
           break;
 
         case "Shekels":
-          input2.value = (input1.value * 3.79).toFixed(3)+"  NIS";
+          input2.value = (input1.value * 3.79).toFixed(3) + "  NIS";
           break;
       }
     }
@@ -239,52 +250,52 @@ converterBtn.addEventListener("click", function () {
 
     //convert from shekels to euros  and Dollars
     if (coin1.value === "Shekels" && input1.value !== "") {
-        input1.value=input1.value+"  NIS"
+      input1.value = input1.value + "  NIS";
       switch (coin2.value) {
         case "Dollars":
-          input2.value =(input1.value / (3.24)).toFixed(3)+"  USD";
+          input2.value = (input1.value / 3.24).toFixed(3) + "  USD";
           break;
         case "Euros":
-          input2.value =(input1.value / (3.79)).toFixed(3)+"  EUR";
+          input2.value = (input1.value / 3.79).toFixed(3) + "  EUR";
           break;
 
         case "Shekels":
-          input2.value = input1.value * 1+"  NIS";
+          input2.value = input1.value * 1 + "  NIS";
           break;
       }
     }
 
     //convert from dollars to shekels and euros
     if (coin1.value === "Dollars" && input1.value !== "") {
-        input1.value=input1.value+"  USD";
+      input1.value = input1.value + "  USD";
       switch (coin2.value) {
         case "Dollars":
           input2.value = input1.value * 1;
           break;
 
         case "Euros":
-          input2.value = (input1.value * 1.17).toFixed(3)+"  EUR";
+          input2.value = (input1.value * 1.17).toFixed(3) + "  EUR";
           break;
 
         case "Shekels":
-          input2.value = (input1.value * 3.24).toFixed(3)+"  NIS";
+          input2.value = (input1.value * 3.24).toFixed(3) + "  NIS";
           break;
       }
     }
 
     //convert from euros to shekels and Dollars
     if (coin1.value === "Euros" && input1.value !== "") {
-        input1.value=input1.value+"  EUR";
+      input1.value = input1.value + "  EUR";
       switch (coin2.value) {
         case "Dollars":
           input2.value = input1.value / (1.17).toFixed(3);
           break;
         case "Euros":
-          input2.value = input1.value * 1+"  EUR";
+          input2.value = input1.value * 1 + "  EUR";
           break;
 
         case "Shekels":
-          input2.value = (input1.value * 3.79).toFixed(3)+"  NIS";
+          input2.value = (input1.value * 3.79).toFixed(3) + "  NIS";
           break;
       }
     }
