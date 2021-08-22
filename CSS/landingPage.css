@@ -1,7 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Urbanist", sans-serif;
 }
 /* for Calculator and Converter namein header */
 .headerCalculator,
@@ -15,7 +17,6 @@
 .adjust {
   padding: 5px;
   color: #758888ab;
-  background-color: #8ad9d169;
   border: none;
   border-radius: 10px;
   position: absolute;
@@ -40,7 +41,7 @@ body.dark {
 }
 
 .label {
-  background-color: #11111124;
+  background-color: #8ad9d169;
   border-radius: 50px;
   cursor: pointer;
   display: flex;
@@ -70,7 +71,7 @@ body.dark {
 }
 
 .fa-moon {
-  color: #f1c40f;
+  color: #f39c12;
 }
 
 .fa-sun {
@@ -81,11 +82,11 @@ body.dark {
   margin: 10px;
   text-align: center;
   margin-top: 35px;
-  margin-bottom: 45px;
+  margin-bottom: 30px;
 }
 .converter,
 .calculator {
-  color: #758888;
+  color: #506565;
   padding: 10px;
   background: #fed9dfeb;
   font-size: 19px;
@@ -94,7 +95,7 @@ body.dark {
 }
 /* style for numbers in  calculator  */
 .numbers {
-  margin: 75px;
+  margin: 50px;
   margin-left: 55px;
   padding: 10px;
   width: 270px;
@@ -131,7 +132,7 @@ input[type="button"] {
 .operatorDiv input {
   color: #862043;
   background-color: #52ccc08a;
-  font-size: 18px;
+  font-size: 20px;
 }
 /* for selected coins in converter */
 .coin1,
@@ -160,4 +161,123 @@ input[type="button"] {
   width: 160px;
   padding: 5px;
   border-radius: 5px;
+}
+
+@media (min-width: 768px) {
+  .adjust {
+    left: 665px;
+    top: 17px;
+  }
+  .headerCalculator,
+  .headerConverter {
+    font-size: 35px;
+  }
+  .buttons {
+    margin-bottom: 0px;
+  }
+  .converter,
+  .calculator {
+    padding: 18px;
+    font-size: 25px;
+    width: 150px;
+    font-weight: 500;
+    margin: 10px;
+  }
+  .numbers {
+    margin: 60px;
+    margin-left: 208px;
+    padding: 28px;
+    width: 375px;
+    border: 2px #cde2dba6 solid;
+    background-color: #dbe4e24d;
+    border-radius: 10px;
+    height: 50vh;
+  }
+  input[type="button"] {
+    font-size: 25px;
+    width: 55px;
+    height: 55px;
+  }
+  .operatorDiv {
+    margin-left: 245px;
+    margin-top: -299px;
+  }
+
+  .numInput {
+    margin: 5px;
+    padding: 15px;
+    width: 305px;
+    height: 77px;
+  }
+
+  .operatorDiv input {
+    font-size: 25px;
+  }
+  .coin1,
+  .coin2 {
+    border-radius: 5px;
+    width: 200px;
+    height: 4vh;
+    font-size: 24px;
+  }
+  .select {
+    margin-left: 140px;
+    margin-top: 51px;
+  }
+  .fa-random:before {
+    padding: 6px;
+    font-size: 23px;
+  }
+
+  .convert {
+    margin-left: 124px;
+    margin-top: 24px;
+  }
+  .convertInput {
+    margin: 15px;
+    width: 225px;
+    height: 6vh;
+    font-size: 25px;
+  }
+}
+@media (min-width: 800px) {
+  .adjust {
+    left: 1080px;
+    top: 10px;
+  }
+  .numbers {
+    margin: 20px;
+    margin-left: 495px;
+    height: 470px;
+    margin-left: 480px;
+    padding: 10px;
+  }
+  .headerCalculator,
+  .headerConverter {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  .buttons {
+    margin-top: 15px;
+  }
+  .converter,
+  .calculator {
+    padding: 10px;
+    font-size: 20px;
+  }
+  .numInput {
+    margin: 3px;
+    margin-left: 20px;
+    padding: 15px;
+    height: 60px;
+    width: 315px;
+  }
+  input[type="button"] {
+    margin-left: 20px;
+  }
+
+  .operatorDiv {
+    margin-left: 256px;
+    margin-top: -300px;
+  }
 }
