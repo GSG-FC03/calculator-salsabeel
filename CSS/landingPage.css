@@ -115,6 +115,9 @@ input[type="button"] {
   font-size: 19px;
   margin-left: 14px;
 }
+input:hover{
+  background-color: antiquewhite;
+}
 /* style for operator buttons in  calculator  */
 .operatorDiv {
   margin-left: 185px;
@@ -128,6 +131,7 @@ input[type="button"] {
   border-radius: 10px;
   border: none;
   background-color: #aeb7c433;
+  font-size: 18px;
 }
 .operatorDiv input {
   color: #862043;
