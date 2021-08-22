@@ -193,6 +193,7 @@ converterBtn.addEventListener("click", function () {
   input1.oninput = function (e) {
     //convert from shekels to dollars and Euros
     if (coin1.value === "Shekels" && input1.value !== "") {
+  
       switch (coin2.value) {
         case "Dollars":
           input2.value = (input1.value / 3.24).toFixed(3) + "  USD";
@@ -209,7 +210,7 @@ converterBtn.addEventListener("click", function () {
     }
     //convert from dollars to shekels and euros
     if (coin1.value === "Dollars" && input1.value !== "") {
-      input1.value = input1.value + "  USD";
+ 
       switch (coin2.value) {
         case "Dollars":
           input2.value = input1.value * 1 + "  USD";
@@ -225,7 +226,7 @@ converterBtn.addEventListener("click", function () {
     }
     //convert from euros to shekels and Dollars
     if (coin1.value === "Euros" && input1.value !== "") {
-      input1.value = input1.value + "  EUR";
+      
       switch (coin2.value) {
         case "Dollars":
           input2.value = (input1.value / 1.17).toFixed(3) + "  USD";
@@ -248,7 +249,7 @@ converterBtn.addEventListener("click", function () {
 
     //convert from shekels to euros  and Dollars
     if (coin1.value === "Shekels" && input1.value !== "") {
-      input1.value = input1.value + "  NIS";
+      
       switch (coin2.value) {
         case "Dollars":
           input2.value = (input1.value / 3.24).toFixed(3) + "  USD";
@@ -265,7 +266,7 @@ converterBtn.addEventListener("click", function () {
 
     //convert from dollars to shekels and euros
     if (coin1.value === "Dollars" && input1.value !== "") {
-      input1.value = input1.value + "  USD";
+     
       switch (coin2.value) {
         case "Dollars":
           input2.value = input1.value * 1;
@@ -283,7 +284,7 @@ converterBtn.addEventListener("click", function () {
 
     //convert from euros to shekels and Dollars
     if (coin1.value === "Euros" && input1.value !== "") {
-      input1.value = input1.value + "  EUR";
+  
       switch (coin2.value) {
         case "Dollars":
           input2.value = input1.value / (1.17).toFixed(3);
