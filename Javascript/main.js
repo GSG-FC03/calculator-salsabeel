@@ -1,5 +1,5 @@
-const header = document.getElementsByClassName("headerConverter")[0];
-const headerName = document.getElementsByClassName("headerCalculator")[0];
+const headerConverter = document.getElementsByClassName("headerConverter")[0];
+const headerCalculator = document.getElementsByClassName("headerCalculator")[0];
 const DL = document.getElementById("DL");
 
 const numInput = document.getElementsByClassName("numInput")[0];
@@ -27,9 +27,9 @@ DL.addEventListener("change", () => {
 // for calculator header
 calculatorBtn.addEventListener("click", function () {
   contentCalculator.style.display = "block";
-  headerName.style.display = "block";
+  headerCalculator.style.display = "block";
   content.textContent = "";
-  header.textContent = "";
+  headerConverter.textContent = "";
 });
 
 // to write numbers in numInput
@@ -54,6 +54,7 @@ dot.addEventListener("click", function () {
 // when i click on AC delete the value in numInput
 deleteBtn.addEventListener("click", function () {
   numInput.value = "";
+  arrValues=[];
 });
 
 //when i click on operator save the numInput in array as index1 and the kind of operator
@@ -119,14 +120,11 @@ equal.addEventListener("click", function () {
 converterBtn.addEventListener("click", function () {
   contentCalculator.style.display = "none";
   content.textContent = "";
-  headerName.textContent = "";
-
-  const contentConverter = document.createElement("div");
-  content.appendChild(contentConverter);
+  headerCalculator.style.display = "none";
 
   const name = document.createElement("h1");
   name.textContent = "Converter ";
-  headerName.appendChild(name);
+  headerConverter.appendChild(name);
 
   const icon = document.createElement("i");
   icon.setAttribute("class", "far fa-analytics");
@@ -135,7 +133,7 @@ converterBtn.addEventListener("click", function () {
   // the first coin
   const div1 = document.createElement("div");
   div1.setAttribute("class", "select");
-  contentConverter.appendChild(div1);
+  content.appendChild(div1);
 
   const coin1 = document.createElement("select");
   coin1.setAttribute("class", "coin1");
@@ -179,7 +177,7 @@ converterBtn.addEventListener("click", function () {
   //dives contain input convertet
   const div2 = document.createElement("div");
   div2.setAttribute("class", "convert");
-  contentConverter.appendChild(div2);
+  content.appendChild(div2);
 
   const input1 = document.createElement("input");
   input1.setAttribute("class", "convertInput");
