@@ -35,6 +35,5 @@ It converts some currencies such as shekel, dollar and euro.
 - HTML
 - CSS
 - javascript
-- local storage
 
 ## The one who made this website is : [Salsabeel AlNajjer](https://github.com/salsabeelomar)

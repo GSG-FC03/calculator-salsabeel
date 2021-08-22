@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./CSS/landingPage.css" />
+    <title>calculator</title>
+  </head>
+  <body class="light">
+    <header>
+      <div class="adjust">
+        <div>
+          <input type="checkbox" class="checkbox" id="DL" />
+          <label class="label" for="DL">
+            <i class="fal fa-moon"></i>
+            <i class="fal fa-sun"></i>
+            <div class="ball"></div>
+          </label>
+        </div>
+      </div>
+      <div class="headerConverter"></div>
+      <div class="headerCalculator">
+        <h1 class="Calculators">
+          Calculator
+          <i class="fal fa-calculator"></i>
+        </h1>
+      </div>
+    </header>
+
+    <main>
+      <section class="buttons">
+        <button class="calculator">Calculator</button>
+        <button class="converter">Converter</button>
+      </section>
+      <section class="content"></section>
+      <div class="contentCalculator">
+        <div class="numbers">
+          <input class="numInput" type="text" />
+          <div>
+            <input type="button" value="9" class="number" />
+            <input type="button" value="8" class="number" />
+            <input type="button" value="7" class="number" />
+          </div>
+          <div>
+            <input type="button" value="6" class="number" />
+            <input type="button" value="5" class="number" />
+            <input type="button" value="4" class="number" />
+          </div>
+          <div>
+            <input type="button" value="3" class="number" />
+            <input type="button" value="2" class="number" />
+            <input type="button" value="1" class="number" />
+          </div>
+          <div>
+            <input type="button" value="0" class="number" />
+            <input type="button" value="." class="number" />
+            <input type="button" value="AC" class="delete" />
+          </div>
+          <div class="operatorDiv">
+            <input type="button" value="+" class="operator" />
+            <input type="button" value="-" class="operator" />
+            <input type="button" value="X" class="operator" />
+            <input type="button" value="÷" class="operator" />
+            <input type="button" value="=" class="equal" />
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="Javascript/main.js"></script>
+  </body>
+</html>
